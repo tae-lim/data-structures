@@ -3,7 +3,7 @@ var Stack = function() {
 
   // Use an object with numeric keys to store values
   var storage = {};
-  var count = 1;
+  var count = 0;
   var poppedValue;
 
   // var storage = {
@@ -18,13 +18,15 @@ var Stack = function() {
   };
 
   someInstance.pop = function() {
-  count--;
-  poppedValue = storage[count];
-  delete storage[count];
-  return poppedValue;
-};
+    if (count > 0) {
+      count--;
+    }
+    poppedValue = storage[count];
+    delete storage[count];
+    return poppedValue;
+  };
   someInstance.size = function() {
-  //return the number of items in the stack
+    return count;
   };
 
   return someInstance;
