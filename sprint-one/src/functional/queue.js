@@ -4,7 +4,7 @@ var Queue = function() {
   // Use an object with numeric keys to store values
   var storage = {};
   var count = 0;
-  var front = 1;
+  var front = 0;
   var dequeued;
   // var storage = {
   //   '1': _____, <-dequeue
@@ -21,42 +21,28 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    dequeued = storage[front];
-    delete storage[front];
-    front++;
+    if (count - front >= 0) {
+      dequeued = storage[front];
+      delete storage[front];
+      front++;
+    }
     return dequeued;
-
-    // var result = '';
-    // var smallest = null;
-
-    // // {
-    // //   '1': a,
-    // //   '2': b
-    // // }
-
-    // for (var key in storage) {
-    //   // result += storage[key];
-    //   // console.log(smallest);
-    //   if (key < smallest || smallest === null) {
-    //     smallest = key;
-    //   }
-
-
-    //   // delete storage[key];
-    //   break;
-    // }
-    // result = storage[smallest];
-    // delete storage[smallest];
-    // return result;
   };
 
   someInstance.size = function() {
   //return the number of items in the queue.
   //return storage.length;
+    if (count - front < 0) {
+      return 0;
+    } else {
+      return count - front;
+    }
   };
 
   return someInstance;
 };
+
+//test comment
 
 // First in first out
 // Last in last out
