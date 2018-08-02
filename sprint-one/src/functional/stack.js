@@ -6,11 +6,6 @@ var Stack = function() {
   var count = 0;
   var poppedValue;
 
-  // var storage = {
-  //   '1': _____,
-  //   '2': _____,
-  //   '3': _____  <-push <-pop
-  // };
   // Implement the methods below
   someInstance.push = function(value) {
     storage[count] = value;
@@ -31,23 +26,4 @@ var Stack = function() {
 
   return someInstance;
 };
-
-// var pancake = Stack();
-
-// console.log(pancake); ->
-// pancake = {
-//   push: function
-//   pop: function
-//   size: function
-// }
-
-// count = 0
-// pancake.push('hi');
-// count = 1
-
-// count = 2
-
-// pancake.push('hey');
-// count = 3
-// pancake.pop(); - > ('hey');
 
