@@ -9,9 +9,6 @@ var Stack = function() {
   return instance;
 };
 
-// var Books = Stack();
-
-
 var stackMethods = {};
 
 stackMethods.push = function (value) {
@@ -21,11 +18,11 @@ stackMethods.push = function (value) {
 
 stackMethods.pop = function () {
   if (this.count > 0) {
-      this.count--;
-    }
-    this.poppedValue = this.storage[this.count];
-    delete this.storage[this.count];
-    return this.poppedValue;
+    this.count--;
+  }
+  this.poppedValue = this.storage[this.count];
+  delete this.storage[this.count];
+  return this.poppedValue;
 };
 
 stackMethods.size = function () {
