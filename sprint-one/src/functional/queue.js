@@ -14,12 +14,16 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    if (count - front >= 0) {
+    if (count - front > 0) {
       dequeued = storage[front];
       delete storage[front];
       front++;
+      return dequeued;
+    } else {
+      count = 0;
+      front = 0;
     }
-    return dequeued;
+
   };
 
   someInstance.size = function() {
