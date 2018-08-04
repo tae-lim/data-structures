@@ -16,6 +16,12 @@ setPrototype.add = function(item) {
 
 //takes any string and returns a boolean reflecting whether it can be found in a set
 setPrototype.contains = function(item) {
+  for (var node in this._storage) {
+    if (this._storage[node] === item) {
+      return true;
+    }
+  }
+  return false;
 };
 
 //takes any string and removes it from the set, if present
