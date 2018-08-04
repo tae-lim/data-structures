@@ -23,14 +23,14 @@ treeMethods.contains = function(target) {
   var result = false;
 
   var searchNodes = function (obj) {
-  if (obj.value === target) {
-    result = true;
-  } else {
+    if (obj.value === target) {
+      result = true;
+    } else {
       _.each(obj.children, function (child) {
         searchNodes(child);
       });
     }
-  }
+  };
 
   searchNodes(this);
   return result;
