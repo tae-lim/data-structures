@@ -26,6 +26,11 @@ setPrototype.contains = function(item) {
 
 //takes any string and removes it from the set, if present
 setPrototype.remove = function(item) {
+  for (var node in this._storage) {
+    if (this._storage[node] === item) {
+      delete this._storage[node];
+    }
+  }
 };
 
 /*
