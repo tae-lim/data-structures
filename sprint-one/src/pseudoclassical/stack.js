@@ -2,6 +2,7 @@ var Stack = function() {
   this.storage = {};
   this.count = 0;
   this.poppedValue = null;
+
 };
 
 Stack.prototype.push = function (value) {

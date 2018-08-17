@@ -4,7 +4,7 @@ class Queue {
   constructor() {
     this.storage = {};
     this.count = 0;
-    this.front = 0;
+    this.first = 0;
     this.dequeued = null;
   }
 
@@ -14,19 +14,19 @@ class Queue {
   }
 
   dequeue() {
-    if (this.count - this.front > 0) {
-      this.dequeued = this.storage[this.front];
-      delete this.storage[this.front];
-      this.front++;
+    if (this.count - this.first > 0) {
+      this.dequeued = this.storage[this.first];
+      delete this.storage[this.first];
+      this.first++;
       return this.dequeued;
     } else {
-      this.front = 0;
       this.count = 0;
+      this.first = 0;
     }
   }
 
   size() {
-    return this.count - this.front;
+    return this.count - this.first;
   }
 
 }

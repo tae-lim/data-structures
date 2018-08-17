@@ -1,9 +1,11 @@
 var Queue = function() {
+
   var instance = Object.create(queueMethods);
   instance.storage = {};
   instance.count = 0;
   instance.first = 0;
   instance.dequeued = null;
+
   return instance;
 };
 

@@ -4,39 +4,45 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
-    if (!list.head) {
+    if (list.head === null) {
       list.head = Node(value);
       list.tail = list.head;
     } else {
-      var current = list.head;
-      while (current.next) {
-        current = current.next;
+      currentNode = list.head;
+      while (currentNode.next) {
+        currentNode = current.next;
       }
-      current.next = Node(value);
-      list.tail = current.next;
+      currentNode.next = Node(value);
+      list.tail = currentNode.next;
     }
   };
 
   list.removeHead = function() {
-    var oldHeadValue = list.head.value;
-    list.head = list.head.next;
-    return oldHeadValue;
+      var removedHead = list.head.value;
+      list.head = list.head.next;
+      if (list.head === null) {
+        list.tail = null;
+      }
+      return removedHead;
   };
 
   list.contains = function(target) {
-    var current = list.head;
-    if (current.value === target) {
-      return true;
-    } else {
-      while (current.next) {
-        current = current.next;
-        if (current.value === target) {
-          return true;
+    if (list.head) {
+      current = list.head;
+      if (current.value === target) {
+        return true;
+      } else {
+        while (current.next) {
+          current = current.next;
+          if (current.value === target) {
+            return true;
+          }
         }
       }
     }
     return false;
   };
+
 
   return list;
 };
@@ -54,20 +60,17 @@ var Node = function(value) {
  * Complexity: What is the time complexity of the above functions?
  */
 
-// node addNode(node head, int value){
-//    node temp,p;// declare two nodes temp and p
-//    temp = createNode();// assume createNode creates a new node with data = 0 and next pointing to NULL.
-//    temp->data = value; // add element's value to data part of node
-//    if(head == NULL){
-//        head = temp;     //when linked list is empty
-//    }
-//    else{
-//        p  = head;//assign head to p
-//        while(p->next != NULL){
-//            p = p->next;//traverse the list until p is the last node.The last node always points to NULL.
-//        }
-//        p->next = temp;//Point the previous last node to the new node created.
-//    }
-// //    return head;
+// var newList = LinkedList() ->
+// {
+//   list.head = null
+//   list.tail = null
+//   list.addToTail = function(){}
+//   list.removeHead = function(){}
+//   list.contains = function(){}
+// }
 
+// var newNode = Node() ->
+// {
+//   node.value = value;
+//   node.next = null;
 // }
